@@ -79,6 +79,7 @@ If you want to run this application 100% locally with zero cloud dependencies fo
    # LLM (inside ask_question)
    llm = ChatOllama(model="llama3", temperature=0.3)
    ```
+4. **Important**: You cannot mix embedding models! Before running the application with the new local models, you must delete your existing FAISS database. Either click the "Clear Memory & Delete Database" button in the app, or manually delete the `company_vector_db` folder from your project directory. Then, upload your documents again to re-embed them using the new Ollama models.
 
 ## 🏢 About Spark AI
 Spark AI provides top-tier AI consulting, teaching, and workshops across the Ventura and Santa Barbara areas. We help businesses integrate practical, secure, and modern artificial intelligence into their daily operations.
