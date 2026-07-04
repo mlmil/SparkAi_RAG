@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/spark_ai_banner.jpg" alt="Spark AI RAG System" width="100%" />
+  <img src="assets/ragreadmepic.png" alt="Spark AI RAG System" width="100%" />
 </div>
 
 # Spark AI - Local RAG Application
