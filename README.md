@@ -54,5 +54,31 @@ source .venv/bin/activate
 streamlit run rag_app/app.py
 ```
 
+### 4. Optional: Swapping to Local Models (Ollama)
+If you want to run this application 100% locally with zero cloud dependencies for maximum privacy, you can easily swap out the Google Gemini models for local open-source models using [Ollama](https://ollama.com/).
+
+1. Install Ollama and pull your desired models:
+   ```bash
+   ollama run llama3
+   ollama pull nomic-embed-text
+   ```
+2. In `rag_app/rag_core.py`, replace the Google imports:
+   ```python
+   # Replace this:
+   # from langchain_google_genai import GoogleGenerativeAIEmbeddings, ChatGoogleGenerativeAI
+   
+   # With this:
+   from langchain_community.embeddings import OllamaEmbeddings
+   from langchain_community.chat_models import ChatOllama
+   ```
+3. Swap the initialization code:
+   ```python
+   # Embeddings
+   embedding_model = OllamaEmbeddings(model="nomic-embed-text")
+   
+   # LLM (inside ask_question)
+   llm = ChatOllama(model="llama3", temperature=0.3)
+   ```
+
 ## 🏢 About Spark AI
 Spark AI provides top-tier AI consulting, teaching, and workshops across the Ventura and Santa Barbara areas. We help businesses integrate practical, secure, and modern artificial intelligence into their daily operations.
